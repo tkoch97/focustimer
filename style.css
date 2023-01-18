@@ -1,0 +1,87 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* colors */
+  --bg-body: #121214;
+  --controls-baseColor: 80;
+  --buttonsColors: hsl(var(--controls-baseColor), 100%, 63%);
+  --bg-controls: hsla(var(--controls-baseColor), 100%, 63%, 0.13);
+  --txtcolor-timer: #fff;
+  
+  /* font size */
+  font-size: 62.5%;
+  --fs-timer: clamp(6.0rem, 4.0rem + 10vw, 8.8rem);
+
+  /* font family */
+  --ff-general: 'Roboto', sans-serif;
+}
+
+body {
+  background: var(--bg-body);
+  font-family: var(--ff-general);
+  display: grid;
+  align-content: center;
+  height: 100vh;
+}
+
+main {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+main .timer {
+  color: var(--txtcolor-timer);
+  font-size: var(--fs-timer);
+  display: flex;
+}
+
+main .controls {
+  background: var(--bg-controls);
+  padding: 2.2rem 4.0rem;
+  border-radius: 99rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3.2rem;
+
+  width: clamp(10rem, 10rem + 30vw, 22.8rem);
+  height: clamp(8.0rem, 5.0rem + 10vw, 10.8rem);
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+button svg {
+  width: clamp(4.0rem, 2.0rem + 12vw, 6.4rem);
+}
+
+.play svg path {
+  fill: var(--buttonsColors);
+}
+
+.pause svg path {
+  fill: var(--buttonsColors);
+}
+
+.sound-on svg path {
+  fill: var(--buttonsColors);
+}
+
+.hide {
+  display: none;
+}
+
+.music-container {
+  position: absolute;
+  bottom: 3.2rem;
+  right: 4.0rem;
+}
