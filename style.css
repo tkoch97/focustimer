@@ -7,6 +7,8 @@
 :root {
   /* colors */
   --bg-body: #121214;
+  /* esquema para poder mudar facilmente a cor do menu de controles, trnsformo as cores em "hsl" e crio uma variável 
+  para a cor primária */
   --controls-baseColor: 80;
   --buttonsColors: hsl(var(--controls-baseColor), 100%, 63%);
   --bg-controls: hsla(var(--controls-baseColor), 100%, 63%, 0.13);
@@ -23,16 +25,14 @@
 body {
   background: var(--bg-body);
   font-family: var(--ff-general);
-  display: grid;
-  align-content: center;
+  display: grid; /* desbloqueia as funcionalidades de alinhamento isolado de cada elemento filho */
   height: 100vh;
 }
 
 main {
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  align-self: end; /* alinha o elemento isolado no eixo Y (verticalmente) */
+  justify-self: center; /* alinha o elemento isolado no eixo X (horizontalmente) */
+  /* Outra opção seria usar um display flex no "main", um "align-itens: center" no "body" e um "position: absolute" no "sound-container" */
 }
 
 main .timer {
@@ -44,6 +44,7 @@ main .timer {
 main .controls {
   background: var(--bg-controls);
   padding: 2.2rem 4.0rem;
+  margin-top: 1.6rem;
   border-radius: 99rem;
   display: flex;
   align-items: center;
@@ -81,7 +82,7 @@ button svg {
 }
 
 .music-container {
-  position: absolute;
-  bottom: 3.2rem;
-  right: 4.0rem;
+  justify-self: end;
+  align-self: flex-end;
+  margin: 0 4.0rem 3.2rem 0;
 }
