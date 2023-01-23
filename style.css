@@ -32,7 +32,10 @@ body {
 }
 
 main {
-  align-self: end; /* alinha o elemento isolado no eixo Y (verticalmente) */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: end; /*alinha o elemento isolado no eixo Y (verticalmente)*/
   justify-self: center; /* alinha o elemento isolado no eixo X (horizontalmente) */
   /* Outra opção seria usar um display flex no "main", um "align-itens: center" no "body" e um "position: absolute" no "sound-container" */
 }
@@ -93,6 +96,28 @@ button svg {
 
 .hide {
   display: none;
+}
+
+footer {
+  color: #c5c5c5;
+  font-family: var(--ff-general);
+  font-size: clamp(1rem, .5rem + 2vw, 1.5rem);
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  margin-top: 10.0rem;
+  position: absolute;
+  bottom: 12rem;
+}
+
+footer a {
+  text-decoration: none;
+  color: var(--buttonsColors);
+  cursor: pointer;
+}
+
+footer a:hover {
+  color: hsl(415, 100%, 50%);
 }
 
 .music-container {
