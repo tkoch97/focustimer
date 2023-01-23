@@ -1,5 +1,7 @@
+import endSound from "./sounds.js";
+
 export function Timer({
-  minutesDisplay, 
+  minutesDisplay,
   secondsDisplay,
   resetControls,
 }) {
@@ -30,11 +32,12 @@ export function Timer({
       if (isFinished) {
           resetControls();
           updateDisplay();
+          endSound().timeEnd();
           return;
         }
   
       if (seconds <= 0) {
-        seconds = 10;
+        seconds = 60;
         --minutes;
       }
       
