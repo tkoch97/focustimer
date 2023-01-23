@@ -6,12 +6,12 @@
 
 :root {
   /* colors */
-  --bg-body: #121214;
+  --bg-body: linear-gradient(45deg, #030b3f 0%, #00bbff 100%);
   /* esquema para poder mudar facilmente a cor do menu de controles, trnsformo as cores em "hsl" e crio uma variável 
   para a cor primária */
-  --controls-baseColor: 80;
+  --controls-baseColor: 400;
   --buttonsColors: hsl(var(--controls-baseColor), 100%, 63%);
-  --bg-controls: hsla(var(--controls-baseColor), 100%, 63%, 0.13);
+  --bg-controls: hsla(var(--controls-baseColor), 100%, 63%, 0.30);
   --txtcolor-timer: #fff;
   
   /* font size */
@@ -24,6 +24,8 @@
 
 body {
   background: var(--bg-body);
+  background-size: 200% 200%;
+  animation: gradient 10s ease infinite;
   font-family: var(--ff-general);
   display: grid; /* desbloqueia as funcionalidades de alinhamento isolado de cada elemento filho */
   height: 100vh;
@@ -33,6 +35,13 @@ main {
   align-self: end; /* alinha o elemento isolado no eixo Y (verticalmente) */
   justify-self: center; /* alinha o elemento isolado no eixo X (horizontalmente) */
   /* Outra opção seria usar um display flex no "main", um "align-itens: center" no "body" e um "position: absolute" no "sound-container" */
+}
+
+main h1 {
+  color: #fff;
+  text-align: center;
+  padding-bottom: 2.0rem;
+  font-size: clamp(1rem, 1.0rem + 5vw, 2.5rem);
 }
 
 main .timer {
@@ -59,6 +68,11 @@ button {
   border: none;
   background: none;
   cursor: pointer;
+  transition: all 0.5s;
+}
+
+button:hover {
+  transform: scale(1.1);
 }
 
 button svg {
@@ -85,4 +99,18 @@ button svg {
   justify-self: end;
   align-self: flex-end;
   margin: 0 4.0rem 3.2rem 0;
+}
+
+/* Animations */
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
